@@ -12,6 +12,14 @@
         ></Topic>
       </div>
     </div>
+    <hr class="my-4">
+    <div id="categoriesWrapper" class="mx-auto">
+      <CategoriesGroup
+        :categories="categories"
+      >
+      </CategoriesGroup>
+
+    </div>
 
   </div>
 </template>
@@ -19,17 +27,21 @@
 <script>
 import TheNavbar from './components/TheNavbar.vue'
 import Topic from './components/Topic'
+import CategoriesGroup from './components/CategoriesGroup'
 
 export default {
   name: 'app',
   components: {
     TheNavbar,
-    Topic
+    Topic,
+    CategoriesGroup
   },
   data() {
     return {
       activeTopic: {},
+      activeCategory: "",
       seenTopics: [],
+      categories: ["allmänt", "politik", "filosofi", "kontroversiellt", "dejt"],
       dummyTopics: [
         { 
           id: "1",
@@ -137,7 +149,42 @@ body {
 }
 
 #topicWrapper {
+  /* animation: fadeIn 0.5s ease-in ;
+  -webkit-animation: fadeIn 0.5s ease-in ;
+  -moz-animation: fadeIn 0.5s ease-in ;
+  -ms-animation: fadeIn 0.5s ease-in ;
+  -o-animation: fadeIn 0.5s ease-in ; */
   grid-column: 4/9;
 }
+
+#categoriesWrapper {
+
+  max-width: 45rem;
+}
+/* @keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@-ms-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@-o-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to { opacity: 0;}
+} */
+
 
 </style>
